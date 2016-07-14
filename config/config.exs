@@ -14,6 +14,8 @@ config :uploader, Uploader.Endpoint,
   pubsub: [name: Uploader.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+config :uploader, upload_dir: Path.join(Path.dirname(__DIR__), "i")
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
@@ -22,8 +24,3 @@ config :logger, :console,
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
-
-# Configure phoenix generators
-#config :phoenix, :generators,
-#  migration: true,
-#  binary_id: false
